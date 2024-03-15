@@ -13,11 +13,6 @@ public class StringSchema extends BaseSchema<String> {
         this.contains = new ArrayList<>();
     }
 
-    public StringSchema required() {
-        required = !required;
-        return this;
-    }
-
     public StringSchema minLength(int minLength) {
         this.minLength = minLength;
         return this;

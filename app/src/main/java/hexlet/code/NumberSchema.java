@@ -10,11 +10,6 @@ public class NumberSchema extends BaseSchema<Integer> {
         this.range = new int[2];
     }
 
-    NumberSchema required() {
-        required = !required;
-        return this;
-    }
-
     NumberSchema positive() {
         positive = !positive;
         return this;
