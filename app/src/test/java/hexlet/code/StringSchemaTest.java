@@ -21,15 +21,17 @@ public class StringSchemaTest {
 
     @Test
     void testNotNull() {
-        schema.required();
-        assertFalse(schema.isValid(""));
+        assertFalse(schema.required().isValid(""));
     }
+
     @Test
     void testMinLength() {
         String str = "adcd";
         schema.minLength(str.length() - 1);
         assertFalse(schema.isValid(str));
+
     }
+
     @Test
     void testContains() {
         schema.contains("abc");

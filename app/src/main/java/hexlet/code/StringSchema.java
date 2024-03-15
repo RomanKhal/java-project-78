@@ -3,8 +3,7 @@ package hexlet.code;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StringSchema {
-    private boolean required;
+public class StringSchema extends BaseSchema<String> {
     private int minLength;
     private List<String> contains;
 
@@ -14,23 +13,27 @@ public class StringSchema {
         this.contains = new ArrayList<>();
     }
 
-    public void required() {
-        this.required = true;
+    public StringSchema required() {
+        required = !required;
+        return this;
     }
 
-    public void minLength(int minLength) {
+    public StringSchema minLength(int minLength) {
         this.minLength = minLength;
+        return this;
     }
 
-    public void contains(String str) {
+    public StringSchema contains(String str) {
         this.contains.add(str);
+        return this;
     }
 
+    @Override
     public boolean isValid(String string) {
         if (required && string.isEmpty()) {
             return false;
         }
-        if  (minLength >= 0) {
+        if (minLength >= 0) {
             if (string.length() > minLength) {
                 return false;
             }
