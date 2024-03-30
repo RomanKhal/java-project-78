@@ -13,7 +13,7 @@ public abstract class BaseSchema<T> {
         this.required = false;
     }
 
-    BaseSchema<T> required() {
+    public BaseSchema<T> required() {
         required = !required;
         return this;
     }

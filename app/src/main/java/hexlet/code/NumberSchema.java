@@ -13,7 +13,7 @@ public class NumberSchema extends BaseSchema<Number> {
     }
 
     @Override
-    NumberSchema required() {
+    public NumberSchema required() {
         super.required();
         return this;
     }

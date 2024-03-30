@@ -12,7 +12,7 @@ public class StringSchema extends BaseSchema<String> {
         return this;
     }
     @Override
-    StringSchema required() {
+    public StringSchema required() {
         super.required();
         return this;
     }
