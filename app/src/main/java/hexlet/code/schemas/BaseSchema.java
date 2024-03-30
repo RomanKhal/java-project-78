@@ -21,11 +21,12 @@ public abstract class BaseSchema<T> {
     public boolean isValid(T val) {
         if (required) {
             if (val == null || val.equals("")) {
+                System.out.println(val);
                 return false;
             }
         }
         for (Map.Entry<String, Predicate<T>> criteria : criterias.entrySet()) {
-            if (!criteria.getValue().test(val)) {
+            if (val != null &&!criteria.getValue().test(val)) {
                 return false;
             }
         }

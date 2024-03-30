@@ -24,6 +24,7 @@ class NumberSchemaTest {
     @Test
     void testPositive() {
         assertTrue(numberSchema.isValid(null));
+        assertTrue(numberSchema.positive().isValid(null));
         assertFalse(numberSchema.positive().isValid(-1));
     }
 
