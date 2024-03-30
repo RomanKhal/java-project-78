@@ -26,7 +26,7 @@ public abstract class BaseSchema<T> {
             }
         }
         for (Map.Entry<String, Predicate<T>> criteria : criterias.entrySet()) {
-            if (val != null &&!criteria.getValue().test(val)) {
+            if (val != null && !criteria.getValue().test(val)) {
                 return false;
             }
         }
