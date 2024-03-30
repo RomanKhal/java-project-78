@@ -39,6 +39,6 @@ class ValidatorTest {
         assertEquals(MapSchema.class, validator.map().getClass());
         assertEquals(MapSchema.class, validator.map().required().getClass());
         assertEquals(MapSchema.class, validator.map().shape(new HashMap<>()).getClass());
-        assertEquals(MapSchema.class, validator.map().sizeOf(1).getClass());
+        assertEquals(MapSchema.class, validator.map().sizeof(1).getClass());
     }
 }

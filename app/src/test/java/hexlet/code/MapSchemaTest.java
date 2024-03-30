@@ -27,8 +27,8 @@ class MapSchemaTest {
 
     @Test
     void testSize() {
-        assertFalse(mapSchema.sizeOf(1).isValid(new HashMap<>()));
-        assertTrue(mapSchema.sizeOf(1).isValid(Map.of("key", "value")));
+        assertFalse(mapSchema.sizeof(1).isValid(new HashMap<>()));
+        assertTrue(mapSchema.sizeof(1).isValid(Map.of("key", "value")));
     }
 
     @Test

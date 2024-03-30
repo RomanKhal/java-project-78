@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.Map;
 
 public class MapSchema extends BaseSchema<Map<?, ?>> {
-    public MapSchema sizeOf(int sizeOf) {
+    public MapSchema sizeof(int sizeOf) {
         getCriteria().put("sizeOf", val -> val.size() == sizeOf);
         return this;
     }
