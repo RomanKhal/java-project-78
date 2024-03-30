@@ -22,15 +22,17 @@ class MapSchemaTest {
         assertTrue(mapSchema.isValid(null));
         assertFalse(mapSchema.required().isValid(null));
     }
+
     @Test
     void testSize() {
         assertFalse(mapSchema.sizeOf(1).isValid(new HashMap<>()));
         assertTrue(mapSchema.sizeOf(1).isValid(Map.of("key", "value")));
     }
+
     @Test
     void testShape() {
-        Map<String, Integer> td1 = Map.of("key1", -5,"key2", 7);
-        Map<String, String> td2 = Map.of("key1", "val1","key2", "val2");
+        Map<String, Integer> td1 = Map.of("key1", -5, "key2", 7);
+        Map<String, String> td2 = Map.of("key1", "val1", "key2", "val2");
         Validator validator = new Validator();
         Map<String, BaseSchema<Number>> numSchemas = new HashMap<>();
         numSchemas.put("key1", validator.number().range(-6, 6));
