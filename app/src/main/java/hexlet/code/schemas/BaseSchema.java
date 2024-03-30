@@ -13,15 +13,25 @@ public abstract class BaseSchema<T> {
         this.required = false;
     }
 
+    /**
+     * Функция добавляет в схему ограничение, которое не позволяет использовать null в качестве значения
+     *    отменяет ограничение при повторном вызове.
+     * @see BaseSchema:required()
+     * @return BaseSchema<T>
+     */
     public BaseSchema<T> required() {
         required = !required;
         return this;
     }
-
+    /**
+     * Функция для валидации значений в соответствии со схемой.
+     * @see BaseSchema:isValid()
+     * @param val - значение для валидации
+     * @return boolean
+     */
     public boolean isValid(T val) {
         if (required) {
             if (val == null || val.equals("")) {
-                System.out.println(val);
                 return false;
             }
         }
@@ -32,7 +42,11 @@ public abstract class BaseSchema<T> {
         }
         return true;
     }
-
+    /**
+     * Функция предоставляет доступ к @see BaseSchema:@param required.
+     * @see BaseSchema:getCriteria()
+     * @return Map<String, Predicate<T>>
+     */
     Map<String, Predicate<T>> getCriteria() {
         return this.criterias;
     }

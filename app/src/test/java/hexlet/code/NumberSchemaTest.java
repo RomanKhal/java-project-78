@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class NumberSchemaTest {
-    NumberSchema numberSchema;
+    private NumberSchema numberSchema;
 
     @BeforeEach
     void beforeEach() {
