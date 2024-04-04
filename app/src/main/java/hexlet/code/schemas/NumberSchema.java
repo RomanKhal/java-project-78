@@ -3,12 +3,12 @@ package hexlet.code.schemas;
 public final class NumberSchema extends BaseSchema<Number> {
 
     public NumberSchema positive() {
-        getCriteria().put("positive", val -> val.intValue() > 0);
+        criterias.put("positive", val -> val.intValue() > 0);
         return this;
     }
 
     public NumberSchema range(int min, int max) {
-        getCriteria().put("range", val -> val.doubleValue() >= min && val.intValue() <= max);
+        criterias.put("range", val -> val.doubleValue() >= min && val.intValue() <= max);
         return this;
     }
 

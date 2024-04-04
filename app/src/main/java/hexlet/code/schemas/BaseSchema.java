@@ -6,9 +6,9 @@ import java.util.function.Predicate;
 
 public abstract class BaseSchema<T> {
     private boolean required;
-    private final Map<String, Predicate<T>> criterias;
+    protected final Map<String, Predicate<T>> criterias;
 
-    BaseSchema() {
+    public BaseSchema() {
         this.criterias = new HashMap<>();
         this.required = false;
     }
@@ -42,12 +42,12 @@ public abstract class BaseSchema<T> {
         }
         return true;
     }
-    /**
-     * Функция предоставляет доступ к @see BaseSchema:@param required.
-     * @see BaseSchema:getCriteria()
-     * @return Map<String, Predicate<T>>
-     */
-    Map<String, Predicate<T>> getCriteria() {
-        return this.criterias;
-    }
+//    /**
+//     * Функция предоставляет доступ к @see BaseSchema:@param required.
+//     * @see BaseSchema:getCriteria()
+//     * @return Map<String, Predicate<T>>
+//     */
+//    Map<String, Predicate<T>> getCriteria() {
+//        return this.criterias;
+//    }
 }

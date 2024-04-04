@@ -12,7 +12,8 @@ class NumberSchemaTest {
 
     @BeforeEach
     void beforeEach() {
-        numberSchema = new NumberSchema();
+        Validator v = new Validator();
+        numberSchema = v.number();
     }
 
     @Test
@@ -35,5 +36,13 @@ class NumberSchemaTest {
         assertFalse(numberSchema.isValid(5));
         assertTrue(numberSchema.isValid(2));
         assertTrue(numberSchema.isValid(4));
+    }
+
+    @Test
+    void testOverAll() {
+        numberSchema.required().positive().range(1,4);
+        assertTrue(numberSchema.isValid(2));
+        assertFalse(numberSchema.isValid(-2));
+        assertFalse(numberSchema.isValid(-5));
     }
 }

@@ -12,7 +12,8 @@ public final class StringSchemaTest {
 
     @BeforeEach
     void beforeEach() {
-        schema = new StringSchema();
+        Validator v = new Validator();
+        schema = v.string();
     }
 
     @Test
@@ -44,5 +45,17 @@ public final class StringSchemaTest {
         schema.contains("def");
         assertFalse(schema.isValid("abc"));
         assertTrue(schema.isValid("defabc"));
+    }
+
+    @Test
+    void testOverAll() {
+        schema.required().minLength(4).contains("av");
+        assertTrue(schema.isValid("aavv"));
+        assertFalse(schema.isValid(null));
+        assertFalse(schema.isValid("av"));
+        schema.required();
+        assertTrue(schema.isValid(null));
+        schema.required().contains("avvvv");
+        assertFalse(schema.isValid("aavv"));
     }
 }

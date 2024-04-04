@@ -16,7 +16,8 @@ class MapSchemaTest {
 
     @BeforeEach
     void beforeEach() {
-        mapSchema = new MapSchema();
+        Validator v = new Validator();
+        mapSchema = v.map();
     }
 
     @Test
@@ -40,7 +41,11 @@ class MapSchemaTest {
         numSchemas.put("key1", validator.number().range(-6, 6));
         numSchemas.put("key2", validator.number().positive().range(6, 9));
 
-        mapSchema.shape(numSchemas);
+        mapSchema.required().sizeof(1).shape(numSchemas);
+
+        assertFalse(mapSchema.isValid(td1));
+
+        mapSchema.sizeof(2);
 
         assertTrue(mapSchema.isValid(td1));
 
@@ -48,7 +53,7 @@ class MapSchemaTest {
         strSchemas.put("key1", validator.string().minLength(3));
         strSchemas.put("key2", validator.string().contains("val"));
 
-        mapSchema.shape(strSchemas);
+        mapSchema.required().sizeof(2).shape(strSchemas);
 
         assertTrue(mapSchema.isValid(td2));
     }
