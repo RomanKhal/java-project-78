@@ -40,7 +40,7 @@ class NumberSchemaTest {
 
     @Test
     void testOverAll() {
-        numberSchema.required().positive().range(1,4);
+        numberSchema.required().positive().range(1, 4);
         assertTrue(numberSchema.isValid(2));
         assertFalse(numberSchema.isValid(-2));
         assertFalse(numberSchema.isValid(-5));
